@@ -37,18 +37,18 @@ class Calculator {
     getSelectNumber(num) {
         if (num === '.' && this.secondValue.includes('.'))
             return
-             this.secondValue = this.secondValue.toString() + num.toString();
+        this.secondValue = this.secondValue.toString() + num.toString();
     }
 
     getSelectOperation(operation) {
         if (this.secondValue === '')
             return
-                if(this.firstValue !== '') {
-                    this.getCount();
-                }
-                this.operation = operation;
-                this.firstValue = this.secondValue;
-                this.secondValue = '';
+        if(this.firstValue !== '') {
+            this.getCount();
+        }
+        this.operation = operation;
+        this.firstValue = this.secondValue;
+        this.secondValue = '';
     }
 
     getCount() {
@@ -59,27 +59,27 @@ class Calculator {
 
         if (isNaN(first) || isNaN(second))
             return
-                switch (this.operation) {
-                    case '+':
-                        count = first + second;
-                        break;
-                    case '-':
-                        count = first - second;
-                        break;
-                    case '*':
-                        count = first * second;
-                        break;
-                    case '/':
-                        count = first / second;
-                        break;
-                    case '%':
-                        count = first * second / 100;
-                        break
-                    default: return
-                }
-                this.secondValue = count;
-                this.operation = undefined;
-                this.firstValue = '';
+        switch (this.operation) {
+            case '+':
+                count = first + second;
+                break;
+            case '-':
+                count = first - second;
+                break;
+            case '*':
+                count = first * second;
+                break;
+            case '/':
+                count = first / second;
+                break;
+            case '%':
+                count = first * second / 100;
+                break
+            default: return
+        }
+        this.secondValue = count;
+        this.operation = undefined;
+        this.firstValue = '';
     }
 
     getDisplayNumber(num) {
@@ -166,15 +166,15 @@ resetButton.addEventListener('click', btn => {
     calculator.updateOutput();
 })
 
- document.querySelectorAll("button").forEach(btn => {
+document.querySelectorAll("button").forEach(btn => {
 
-     btn.addEventListener('click',function () {
-         btn.classList.add('click');
-         setTimeout(function () {
-             btn.classList.remove('click');
-         }, 500);
-     });
- });
+    btn.addEventListener('click',function () {
+        btn.classList.add('click');
+        setTimeout(function () {
+            btn.classList.remove('click');
+        }, 500);
+    });
+});
 
 document.addEventListener('keydown', function(event) {
     let patNumbers = /[0-9]/g;
@@ -212,32 +212,35 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+
 // Theme
+
 const themeButton = document.querySelector(".header__btn-theme");
 const body = document.querySelector("body");
-const titleNight = document.querySelector("h1");
-const calculatorNight = document.querySelector(".calculator");
-const buttonNight = document.querySelectorAll(".keyboard__btn");
-const outputFirstNight = document.querySelector(".output__value1");
-const outputSecondNight = document.querySelector(".output__value2");
-const headerNight = document.querySelector(".header");
 
+const currentTheme = localStorage.getItem("theme");
+let theme = "white";
 
-themeButton.addEventListener('click', () => {
+themeButton.addEventListener('click', toggleTheme);
+
+if (currentTheme == "dark") {
+    body.classList.add("dark");
+    themeButton.classList.add("on");
+}
+
+function toggleTheme() {
+    body.classList.toggle("dark");
     themeButton.classList.toggle("on");
-    body.classList.toggle("body-night");
-    titleNight.classList.toggle("title-night");
-    calculatorNight.classList.toggle("calculator-night");
-    outputFirstNight.classList.toggle("output__value-night");
-    outputSecondNight.classList.toggle("output__value-night");
-    output.classList.toggle("output-night");
-    headerNight.classList.toggle("header-night");
 
-    buttonNight.forEach(btn => {
-        btn.classList.toggle("keyboard__btn-night");
-    });
+    if (body.classList.contains("dark")) {
+        theme = "dark";
+    }
 
-});
+    localStorage.setItem("theme", theme);
+}
+
+
+
 
 
 

@@ -166,33 +166,33 @@ h1 {
     left: 16px;
 }
 
-.body-night {
+.dark {
     background: linear-gradient(45deg, rgb(49, 49, 49), rgb(7, 7, 7));
 }
 
-.header-night {
+.dark .header {
     box-shadow: 4px 3px 3px rgba(78, 78, 82, 0.15);
 }
 
-.calculator-night {
+.dark .calculator{
     background: linear-gradient(45deg, rgb(49, 49, 49), rgb(26, 26, 26));
     box-shadow: -3px -2px 7px #464646, 4px 3px 6px rgba(15, 15, 16, 0.1);
 }
 
-.title-night {
+.dark .title {
     color: #ffffff;
 }
 
-.output-night {
+.dark .output {
     box-shadow: 4px 3px 3px rgba(82, 82, 84, 0.15);
 }
 
-.output__value-night {
+.dark .output__value {
     color: #ffffff;
     font-weight: 400;
 }
 
-.keyboard__btn-night {
+.dark .keyboard__btn {
     background: linear-gradient(45deg, rgb(72, 72, 72), rgb(26, 26, 26));
     color: #ffffff;
     box-shadow: -3px -2px 7px #464646, 4px 3px 6px rgba(15, 15, 16, 0.1);
